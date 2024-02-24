@@ -1,19 +1,36 @@
-CharcterName = "Jeffry"
+CharacterName = "Jeffry"
 Class = "Fighter"
-Level = "2"
-Subclass = False
-Race = "Elf"
+Level = 2
+Subclass = false
+Race = "Human"
 PlayerName = "Jeff"
-#exp = 0
-#Backround
+Backround = "bodyguard"
 
+STR = 16
+Dex = 12
+CON = 16
+INT = 12
+WIS = 12
+CHR = 0
 
-#Atrebiutes
-#---------------------
-STR = "16"
-Dex = "12"
-CON = "16"
-ING = "12"
-WIS = "12"
-CHR = "0"
- 
+DexACModifier = false # If the armor do not scale with AC for Example: ChainMail
+Feats = []
+
+Expertise = [
+    "Insight"
+]
+
+proficiencies = [
+    "Intimidation",
+    "Perception"
+]
+
+Armor = {
+    "ChainMail" = 16,
+    "Shield" = 2
+}
+
+Weapons = {
+    "LongSword" = "1d8",
+    "LightCrossbow" = "1d6"
+}

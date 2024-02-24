@@ -2,13 +2,13 @@ CharcterName = "Jeffry"
 Class = "Fighter"
 Level = "2"
 Subclass = False
-Race = "Human"
+Race = "Elf"
 PlayerName = "Jeff"
 #exp = 0
 #Backround
 
 
-#Attributes
+#Atrebiutes
 #---------------------
 STR = "16"
 Dex = "12"
@@ -17,5 +17,3 @@ ING = "12"
 WIS = "12"
 CHR = "0"
  
-
-

@@ -1,4 +1,4 @@
 import toml
 
 def MyChacterSheet():
-    GeneralAtrebuites = open(Atrebiutes.toml, 'r')
+    GeneralAtrebuites = open("Attributes.toml", 'r')

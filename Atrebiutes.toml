@@ -1,0 +1,21 @@
+CharcterName = "Jeffry"
+Class = "Fighter"
+Level = "2"
+Subclass = False
+Race = "Elf"
+PlayerName = "Jeff"
+#exp = 0
+#Backround
+
+
+#Atrebiutes
+#---------------------
+STR = "16"
+Dex = "12"
+CON = "16"
+ING = "12"
+WIS = "12"
+CHR = "0"
+ 
+
+

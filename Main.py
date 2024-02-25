@@ -5,8 +5,11 @@ with open("Attributes.toml", 'r') as file:
 LevelOneHitDie = 10 #Fighter Deafult Needs a Feature to be deveoped
 
 def ModiferCalc(AbilityScoreArgument):
+    """
+    AbilityScoreCalc
+    """
 #Turn into Int to not Get Decimal Numbers
-     return int((AbilityScoreArgument - 10) / 2)
+    return int((AbilityScoreArgument - 10) / 2)
 
 def AbilityScore():
     """
@@ -46,7 +49,8 @@ def Character_Toml_Data():
     subclassActive = ConfigData['IsSubClassActiveSubclass'] or PlayerLevel == 3
     if subclassActive:
         PlayerSubClass = ConfigData['Subclass']
-
+        return
+     
     AbilityScoreMaping = AbilityScore()
     ConMidfier = AbilityScoreMaping["Con"]
     
@@ -54,4 +58,7 @@ def Character_Toml_Data():
     print(PlayerHP)
 if __name__ == "__main__":
     Character_Toml_Data()
+    
+
+
     

@@ -35,3 +35,9 @@ Shield = 2
 [Weapons]
 LongSword = "1d8"
 LightCrossbow = "1d6"
+
+Items = []
+
+Gold = 10 
+
+languages = ["Commen","Arabic"]

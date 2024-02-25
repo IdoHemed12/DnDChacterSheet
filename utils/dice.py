@@ -3,7 +3,7 @@ Util that rolls dice for you
 Author: Yisrael Hessler
 
 Example
-from utils.dice import d4
+from utils.dice import d4, d8
 hp = d4(4) + 10
 d8_roll = d8()
 """

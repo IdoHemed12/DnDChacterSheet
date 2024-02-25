@@ -1,4 +1,7 @@
 import toml
 
-def MyChacterSheet():
-    GeneralAtrebuites = open("Attributes.toml", 'r')
+with open("Attributes.toml", 'r') as file:
+    ConfigData = toml.load(file)
+    
+def Character_Toml_Data(): 
+    PlayerName = ConfigData['PlayerName']

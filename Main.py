@@ -78,11 +78,19 @@ def Character_Toml_Data():
     if subclassActive:
         PlayerSubClass = ConfigData['Subclass']
         return
-     
+
+    AbilityScoreMaping = AbilityScore()
+    StrMidfier = AbilityScoreMaping["Str"]
+    AbilityScoreMaping = AbilityScore()
+    DexMidfier = AbilityScoreMaping["Dex"] 
     AbilityScoreMaping = AbilityScore()
     ConMidfier = AbilityScoreMaping["Con"]
     AbilityScoreMaping = AbilityScore()
-    DexMidfier = AbilityScoreMaping["Dex"]
+    IntMidfier = AbilityScoreMaping["Int"]
+    AbilityScoreMaping = AbilityScore()
+    WisMidfier = AbilityScoreMaping["Wis"]
+    AbilityScoreMaping = AbilityScore()
+    ChrMidfier = AbilityScoreMaping["Chr"]
 
     PlayerHP = Player_HP(ConMidfier, PlayerLevel, LevelOneHitDie, StaticHP)
     PlayerAC = Player_AC(DexMidfier)

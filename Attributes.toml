@@ -10,7 +10,7 @@ Backround = "bodyguard"
 IsHPStatic = true # Determine if the AC is auto-calculated based on average calculation
 IsHPRandomized = false # If someone wants to roll their HP based on their rolls, If it's set to True, the program will do the calculation of the HP 
 
-Str = 16
+Str = 16 
 Dex = 12
 Con = 16
 Int = 12
@@ -26,7 +26,7 @@ Expertise = [
 
 proficiencies = [
     "Intimidation",
-    "Perception"
+    "Perception",
 ]
 
 [Armor]

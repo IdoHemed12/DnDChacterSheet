@@ -33,9 +33,14 @@ def Player_HP(ConstitutionModifer, Level, HitDie, StaticHP):
     Calculate Player HP Based on Con, Class Hit die and Con Modifer
     """
     PlayerHP = 0
-    if StaticHP:
-        PlayerHP = (HitDie + ConstitutionModifer) * Level
-    return PlayerHP
+    if Level == 1:
+        if StaticHP:
+            PlayerHP = (HitDie + ConstitutionModifer) * Level
+    else:
+        if StaticHP:
+            StaticHitDie = HitDie +(HitDie // 2) + 1 +  (ConstitutionModifer * Level)
+            PlayerHP = StaticHitDie
+            return PlayerHP
 
 def Character_Toml_Data(): 
     # Translating the configuration data so it could be referenced later as a Variable 

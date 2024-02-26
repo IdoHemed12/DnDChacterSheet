@@ -61,9 +61,7 @@ def Player_AC(DexModifer):
         for value in ArmorValues:
             TotalAmount += int(value)
         return TotalAmount, Armor
-
-            
-
+    
 def Character_Toml_Data(): 
     # Translating the configuration data so it could be referenced later as a Variable 
     PlayerName = ConfigData['CharacterName']
@@ -94,6 +92,8 @@ def Character_Toml_Data():
 
     PlayerHP = Player_HP(ConMidfier, PlayerLevel, LevelOneHitDie, StaticHP)
     PlayerAC = Player_AC(DexMidfier)
+
+    Playernitiative = DexMidfier
     print(PlayerHP)
     print(PlayerAC)
 

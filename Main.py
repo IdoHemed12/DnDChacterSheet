@@ -41,13 +41,11 @@ def Player_HP(ConstitutionModifer, Level, HitDie, StaticHP):
             StaticHitDie = HitDie +(HitDie // 2) + 1 +  (ConstitutionModifer * Level)
             PlayerHP = StaticHitDie
             return PlayerHP
-def Player_AC(DexModifer):
+def Player_AC(DexModifer, FlatArmor, Armor):
     """
      This Function Returns the Ability Modifers The way to Calculate that is 10 + Dex + Armor + If player have sheild,
       In Attributes.toml There is a Flag FlatACarmor if its set to ture The AC will be the flat AC of the armor: 
     """
-    FlatArmor = ConfigData['FlatArmor']
-    Armor = ConfigData['Armor']
     ArmorValues = Armor.values()
     TotalAmount = 0
     
@@ -76,6 +74,9 @@ def Character_Toml_Data():
     if subclassActive:
         PlayerSubClass = ConfigData['Subclass']
         return
+    
+    FlatArmor = ConfigData['FlatArmor']
+    Armor = ConfigData['Armor']
 
     AbilityScoreMaping = AbilityScore()
     StrMidfier = AbilityScoreMaping["Str"]
@@ -91,11 +92,12 @@ def Character_Toml_Data():
     ChrMidfier = AbilityScoreMaping["Chr"]
 
     PlayerHP = Player_HP(ConMidfier, PlayerLevel, LevelOneHitDie, StaticHP)
-    PlayerAC = Player_AC(DexMidfier)
+    PlayerAC = Player_AC(DexMidfier, FlatArmor, Armor)
 
     Playernitiative = DexMidfier
     print(PlayerHP)
     print(PlayerAC)
+    print(Playernitiative)
 
 if __name__ == "__main__":
     Character_Toml_Data()

@@ -17,7 +17,6 @@ Int = 12
 Wis = 12
 Chr = 10
 
-DexACModifier = false # If the armor does not scale with AC, for Example: ChainMail
 Feats = []
 
 Expertise = [
@@ -28,6 +27,8 @@ proficiencies = [
     "Intimidation",
     "Perception"
 ]
+
+FlatArmor = true # If the armor does not scale with Dex, for Example: ChainMail Flat 18 AC 
 
 [Armor]
 ChainMail = 16

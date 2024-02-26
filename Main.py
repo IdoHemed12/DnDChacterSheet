@@ -13,7 +13,7 @@ def ModiferCalc(AbilityScoreArgument):
 
 def AbilityScore():
     """
-    This Function Returns the Ability Modifers
+    This Function Calculate the Ablity Score and the Ability Score Modifer 
     """
     Str= ConfigData['Str']
     StrModifer = ModiferCalc(Str) 
@@ -41,6 +41,28 @@ def Player_HP(ConstitutionModifer, Level, HitDie, StaticHP):
             StaticHitDie = HitDie +(HitDie // 2) + 1 +  (ConstitutionModifer * Level)
             PlayerHP = StaticHitDie
             return PlayerHP
+def Player_AC(DexModifer):
+    """
+     This Function Returns the Ability Modifers The way to Calculate that is 10 + Dex + Armor + If player have sheild,
+      In Attributes.toml There is a Flag FlatACarmor if its set to ture The AC will be the flat AC of the armor: 
+    """
+    FlatArmor = ConfigData['FlatArmor']
+    Armor = ConfigData['Armor']
+    ArmorValues = Armor.values()
+    TotalAmount = 0
+    
+    if FlatArmor:
+        for Value in ArmorValues:
+            TotalAmount += int(Value)
+        return TotalAmount
+    else:
+        TotalAmount = 10
+        TotalAmount += DexModifer
+        for value in ArmorValues:
+            TotalAmount += int(value)
+        return TotalAmount, Armor
+
+            
 
 def Character_Toml_Data(): 
     # Translating the configuration data so it could be referenced later as a Variable 
@@ -51,6 +73,7 @@ def Character_Toml_Data():
     PlayerBackround = ConfigData['Backround'] # Needs Feature How to Interacte with The Player stats
     StaticHP = ConfigData['Backround']
     PlayerSubClass = None
+
     subclassActive = ConfigData['IsSubClassActiveSubclass'] or PlayerLevel == 3
     if subclassActive:
         PlayerSubClass = ConfigData['Subclass']
@@ -58,12 +81,14 @@ def Character_Toml_Data():
      
     AbilityScoreMaping = AbilityScore()
     ConMidfier = AbilityScoreMaping["Con"]
-    
+    AbilityScoreMaping = AbilityScore()
+    DexMidfier = AbilityScoreMaping["Dex"]
+
     PlayerHP = Player_HP(ConMidfier, PlayerLevel, LevelOneHitDie, StaticHP)
+    PlayerAC = Player_AC(DexMidfier)
     print(PlayerHP)
+    print(PlayerAC)
+
 if __name__ == "__main__":
     Character_Toml_Data()
-    
 
-
-    

@@ -80,15 +80,10 @@ def Character_Toml_Data():
 
     AbilityScoreMaping = AbilityScore()
     StrMidfier = AbilityScoreMaping["Str"]
-    AbilityScoreMaping = AbilityScore()
     DexMidfier = AbilityScoreMaping["Dex"] 
-    AbilityScoreMaping = AbilityScore()
     ConMidfier = AbilityScoreMaping["Con"]
-    AbilityScoreMaping = AbilityScore()
     IntMidfier = AbilityScoreMaping["Int"]
-    AbilityScoreMaping = AbilityScore()
     WisMidfier = AbilityScoreMaping["Wis"]
-    AbilityScoreMaping = AbilityScore()
     ChrMidfier = AbilityScoreMaping["Chr"]
 
     PlayerHP = Player_HP(ConMidfier, PlayerLevel, LevelOneHitDie, StaticHP)

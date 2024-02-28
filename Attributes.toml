@@ -28,11 +28,10 @@ proficiencies = [
     "Perception"
 ]
 
-FlatArmor = true # If the armor does not scale with Dex, for Example: ChainMail Flat 18 AC 
-
-[Armor]
-ChainMail = 16
-Shield = 2
+# ArmorType = ["Light","Meduim","Heavy"] 
+ArmorType = "Heavy"
+ArmorAC = 16
+Shield = true
 
 [Weapons]
 LongSword = "1d8"

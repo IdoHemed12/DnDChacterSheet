@@ -33,32 +33,32 @@ def Player_HP(ConstitutionModifer, Level, HitDie, StaticHP):
     Calculate Player HP Based on Con, Class Hit die and Con Modifer
     """
     PlayerHP = 0
-    if Level == 1:
-        if StaticHP:
+    if StaticHP:
+        if Level == 1:
             PlayerHP = (HitDie + ConstitutionModifer) * Level
-    else:
-        if StaticHP:
-            StaticHitDie = HitDie +(HitDie // 2) + 1 +  (ConstitutionModifer * Level)
-            PlayerHP = StaticHitDie
-            return PlayerHP
-def Player_AC(DexModifer, FlatArmor, Armor):
+        else:
+            LevelOneHp = (HitDie + ConstitutionModifer)
+            Player_HP = LevelOneHp + (HitDie // 2) + (ConstitutionModifer * Level)
+    return Player_HP
+    
+def Player_AC(DexModifer, ArmorType, ArmorAC, Shield):
+    
     """
      This Function Returns the Ability Modifers The way to Calculate that is 10 + Dex + Armor + If player have sheild,
       In Attributes.toml There is a Flag FlatACarmor if its set to ture The AC will be the flat AC of the armor: 
     """
-    ArmorValues = Armor.values()
-    TotalAmount = 0
+    #Sheild 
+    PlayerAC = 0
+    if ArmorType == "Light":
+        PlayerAC = ArmorAC + DexModifer 
+    if ArmorType == "Heavy":
+        PlayerAC = ArmorAC
+    if ArmorType == "Meduim":
+        PlayerAC = ArmorAC + max(2, DexModifer)            
+    if Shield:
+        PlayerAC += 2
+    return PlayerAC
     
-    if FlatArmor:
-        for Value in ArmorValues:
-            TotalAmount += int(Value)
-        return TotalAmount
-    else:
-        TotalAmount = 10
-        TotalAmount += DexModifer
-        for value in ArmorValues:
-            TotalAmount += int(value)
-        return TotalAmount, Armor
     
 def Character_Toml_Data(): 
     # Translating the configuration data so it could be referenced later as a Variable 
@@ -75,8 +75,9 @@ def Character_Toml_Data():
         PlayerSubClass = ConfigData['Subclass']
         return
     
-    FlatArmor = ConfigData['FlatArmor']
-    Armor = ConfigData['Armor']
+    ArmorType = ConfigData['ArmorType']
+    ArmorAC = ConfigData['ArmorAC']
+    Shield = ConfigData['Shield']
 
     AbilityScoreMaping = AbilityScore()
     StrMidfier = AbilityScoreMaping["Str"]

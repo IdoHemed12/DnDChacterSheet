@@ -53,7 +53,7 @@ def Player_AC(DexModifer, ArmorType, ArmorAC, Shield):
         PlayerAC = ArmorAC + DexModifer 
     if ArmorType == "Heavy":
         PlayerAC = ArmorAC
-    if ArmorType == "Meduim":
+    if ArmorType == "Medium":
         PlayerAC = ArmorAC + max(2, DexModifer)            
     if Shield:
         PlayerAC += 2
@@ -88,7 +88,7 @@ def Character_Toml_Data():
     ChrMidfier = AbilityScoreMaping["Chr"]
 
     PlayerHP = Player_HP(ConMidfier, PlayerLevel, LevelOneHitDie, StaticHP)
-    PlayerAC = Player_AC(DexMidfier, FlatArmor, Armor)
+    PlayerAC = Player_AC(DexMidfier, ArmorType, ArmorAC, Shield)
 
     Playernitiative = DexMidfier
     print(PlayerHP)

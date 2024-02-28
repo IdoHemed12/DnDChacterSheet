@@ -35,17 +35,18 @@ def Player_HP(ConstitutionModifer, Level, HitDie, StaticHP):
     PlayerHP = 0
     if StaticHP:
         if Level == 1:
-            PlayerHP = (HitDie + ConstitutionModifer) * Level
+            PlayerHP = (HitDie + ConstitutionModifer)
         else:
             LevelOneHp = (HitDie + ConstitutionModifer)
-            Player_HP = LevelOneHp + (HitDie // 2) + (ConstitutionModifer * Level)
+            HPPerLevel = (HitDie // 2) + 1 + ConstitutionModifer
+            Player_HP = LevelOneHp + HPPerLevel * Level  
+
     return Player_HP
     
 def Player_AC(DexModifer, ArmorType, ArmorAC, Shield):
     
     """
-     This Function Returns the Ability Modifers The way to Calculate that is 10 + Dex + Armor + If player have sheild,
-      In Attributes.toml There is a Flag FlatACarmor if its set to ture The AC will be the flat AC of the armor: 
+    Calculate The AC based on the armor that is configured in ArmorType
     """
     #Sheild 
     PlayerAC = 0

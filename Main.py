@@ -39,7 +39,7 @@ def Player_HP(ConstitutionModifer, Level, HitDie, StaticHP):
         else:
             LevelOneHp = (HitDie + ConstitutionModifer)
             HPPerLevel = (HitDie // 2) + 1 + ConstitutionModifer
-            Player_HP = LevelOneHp + HPPerLevel * Level  
+            Player_HP = LevelOneHp + HPPerLevel * (Level - 1) 
 
     return Player_HP
     

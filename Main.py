@@ -59,7 +59,24 @@ def Player_AC(DexModifer, ArmorType, ArmorAC, Shield):
     if Shield:
         PlayerAC += 2
     return PlayerAC
-    
+
+def Skills(Str, Dex, Con, Int, Wis, Chr):
+    skills_dict = {
+        "StrSkills": ["Athletics"],
+        "DexSkills": ["Acrobatics", "Sleight of Hand", "Stealth"],
+        "ConSkills": [],
+        "IntSkills": ["Arcana", "History", "Investigation", "Nature", "Religion"],
+        "WisSkills": ["Animal Handling", "Insight", "Medicine", "Perception", "Survival"],
+        "ChrSkills": ["Deception", "Intimidation", "Performance", "Persuasion"]
+    }
+
+    for key, value in skills_dict.items():
+        print(f"{key}: {value}")
+
+# Example call of the function
+Skills(None, None, None, None, None, None)
+Skills(1,2,3,4,5,6)
+
     
 def Character_Toml_Data(): 
     # Translating the configuration data so it could be referenced later as a Variable 

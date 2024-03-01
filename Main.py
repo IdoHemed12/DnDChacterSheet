@@ -5,6 +5,20 @@ with open("Attributes.toml", 'r') as file:
 LevelOneHitDie = 10 #Fighter Deafult Needs a Feature to be deveoped
 Proficiency = 2 # Needs Development
 
+def proficiency_bonus(level):
+    proficiency_bonus = 0
+    if level < 5:
+        return 2
+    elif level < 9:
+        return 3
+    elif level < 13:
+        return 4
+    elif level < 17:
+        return 5
+    else:
+        return 6
+    
+
 def ModiferCalc(AbilityScoreArgument):
     """
     AbilityScoreCalc
@@ -87,10 +101,12 @@ def Character_Toml_Data():
     StaticHP = ConfigData['Backround']
     PlayerSubClass = None
 
+    proficiency = proficiency_bonus(PlayerLevel)
+
     subclassActive = ConfigData['IsSubClassActiveSubclass'] or PlayerLevel == 3
     if subclassActive:
         PlayerSubClass = ConfigData['Subclass']
-        return
+        return #Bug
     
     ArmorType = ConfigData['ArmorType']
     ArmorAC = ConfigData['ArmorAC']
@@ -113,7 +129,8 @@ def Character_Toml_Data():
     print("Race: ", PlayerRace)
     print("Backround: ", PlayerBackround)
     print("SubClass: ", PlayerSubClass)
-    
+    print("proficiency bonus:", proficiency)
+
 
     Playeritiative = DexMidfier
     print("HP ", PlayerHP)
@@ -122,7 +139,7 @@ def Character_Toml_Data():
 
     Expertise = ConfigData['Expertise']
     Proficiencies = ConfigData['Proficiencies']
-    Skills(StrMidfier, DexMidfier, ConMidfier, IntMidfier, WisMidfier, ChrMidfier)
+    Skills(StrMidfier, DexMidfier, ConMidfier, IntMidfier, WisMidfier, ChrMidfier, 0, 0, 0)
 
 if __name__ == "__main__":
     Character_Toml_Data()

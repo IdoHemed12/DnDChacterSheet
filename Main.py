@@ -87,12 +87,12 @@ def Skills(StrSkills, DexSkills, ConSkills, IntSkills, WisSkills, ChrSkills, Exp
     for SkillCategory, SkillKey in Skills:
         for ExpertSkill in Expertise:
             if ExpertSkill in SkillKey:
-                SkillKey[ExpertSkill] *= proficiency
+                SkillKey[ExpertSkill] += 2 * proficiency
 
     for SkillCategory, SkillKey in Skills:
         for ProficienciesSkill in Proficiencies:
             if ProficienciesSkill in SkillKey:
-                SkillKey[ProficienciesSkill] += 2
+                SkillKey[ProficienciesSkill] += proficiency
 
 
 

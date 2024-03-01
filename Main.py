@@ -142,7 +142,9 @@ def Character_Toml_Data():
     print("SubClass: ", PlayerSubClass)
     print("proficiency bonus:", proficiency)
 
-
+    
+    print("\n")
+    
     Playeritiative = DexMidfier
     print("HP ", PlayerHP)
     print("AC ", PlayerAC)
@@ -157,4 +159,3 @@ def Character_Toml_Data():
 
 if __name__ == "__main__":
     Character_Toml_Data()
-

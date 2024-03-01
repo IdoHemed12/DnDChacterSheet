@@ -98,7 +98,8 @@ def Skills(StrSkills, DexSkills, ConSkills, IntSkills, WisSkills, ChrSkills, Exp
 
     for SkillCategory, SkillKey in Skills:
         for skill, value in SkillKey.items():
-                print(f"{SkillCategory}:{skill}: {value}")
+                ShowSkills = print(f"{SkillCategory}:{skill}: {value}")
+                
 
     
 def Character_Toml_Data(): 

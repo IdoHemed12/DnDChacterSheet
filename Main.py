@@ -3,6 +3,7 @@ import random
 with open("Attributes.toml", 'r') as file:
     ConfigData = toml.load(file)
 LevelOneHitDie = 10 #Fighter Deafult Needs a Feature to be deveoped
+Proficiency = 2 # Needs Development
 
 def ModiferCalc(AbilityScoreArgument):
     """
@@ -18,6 +19,7 @@ def AbilityScore():
     Str= ConfigData['Str']
     StrModifer = ModiferCalc(Str) 
     Dex = ConfigData['Dex']
+
     DexModifer = ModiferCalc(Dex) 
     Con = ConfigData['Con']
     ConModifer = ModiferCalc(Con) 
@@ -60,22 +62,19 @@ def Player_AC(DexModifer, ArmorType, ArmorAC, Shield):
         PlayerAC += 2
     return PlayerAC
 
-def Skills(Str, Dex, Con, Int, Wis, Chr):
-    skills_dict = {
-        "StrSkills": ["Athletics"],
-        "DexSkills": ["Acrobatics", "Sleight of Hand", "Stealth"],
-        "ConSkills": [],
-        "IntSkills": ["Arcana", "History", "Investigation", "Nature", "Religion"],
-        "WisSkills": ["Animal Handling", "Insight", "Medicine", "Perception", "Survival"],
-        "ChrSkills": ["Deception", "Intimidation", "Performance", "Persuasion"]
-    }
+def Skills(StrSkills, DexSkills, ConSkills, IntSkills, WisSkills, ChrSkills, Expertise, Proficiencies ,Proficiency):
+    Skills = (
+        ("StrSkills", {"Athletics": StrSkills}),
+        ("DexSkills", {"Acrobatics": DexSkills, "Sleight of Hand": DexSkills, "Stealth": DexSkills}),
+        ("ConSkills", {"SomeSkill": ConSkills}),
+        ("IntSkills", {"Arcana": IntSkills, "History": IntSkills, "Investigation": IntSkills, "Nature": IntSkills, "Religion": IntSkills}),
+        ("WisSkills", {"Animal Handling": WisSkills, "Insight": WisSkills, "Medicine": WisSkills, "Perception": WisSkills, "Survival": WisSkills}),
+        ("ChrSkills", {"Deception": ChrSkills, "Intimidation": ChrSkills, "Performance": ChrSkills, "Persuasion": ChrSkills})
+    )
 
-    for key, value in skills_dict.items():
-        print(f"{key}: {value}")
-
-# Example call of the function
-Skills(None, None, None, None, None, None)
-Skills(1,2,3,4,5,6)
+    for skill_category, skills in Skills:
+        if Expertise in Skills:
+            pass
 
     
 def Character_Toml_Data(): 
@@ -108,10 +107,22 @@ def Character_Toml_Data():
     PlayerHP = Player_HP(ConMidfier, PlayerLevel, LevelOneHitDie, StaticHP)
     PlayerAC = Player_AC(DexMidfier, ArmorType, ArmorAC, Shield)
 
-    Playernitiative = DexMidfier
-    print(PlayerHP)
-    print(PlayerAC)
-    print(Playernitiative)
+
+    print("Name: ", PlayerName)
+    print("Class: ", PlayerClass)
+    print("Race: ", PlayerRace)
+    print("Backround: ", PlayerBackround)
+    print("SubClass: ", PlayerSubClass)
+    
+
+    Playeritiative = DexMidfier
+    print("HP ", PlayerHP)
+    print("AC ", PlayerAC)
+    print("Itiative ", Playeritiative)
+
+    Expertise = ConfigData['Expertise']
+    Proficiencies = ConfigData['Proficiencies']
+    Skills(StrMidfier, DexMidfier, ConMidfier, IntMidfier, WisMidfier, ChrMidfier)
 
 if __name__ == "__main__":
     Character_Toml_Data()

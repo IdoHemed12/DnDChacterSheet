@@ -20,7 +20,7 @@ Chr = 10
 
 Feats = []
 
-#If you have expertice you only need to Insert the Value here :-)
+# If you have expertice you only need to Insert the Value here :-)
 Expertise = [
     "Insight",
     "Athletics"
@@ -48,5 +48,5 @@ AlchemistsFire = 1
 RegularItems = ["shovel", "gotic hunter hat"]
 
 Gold = 10 
-#Add Backround and Race 
+#Add From Backround and Race 
 languages = ["Common","Arabic"]

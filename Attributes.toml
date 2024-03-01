@@ -20,6 +20,7 @@ Chr = 10
 
 Feats = []
 
+#If you have expertice you only need to Insert the Value here :-)
 Expertise = [
     "Insight",
     "Athletics"

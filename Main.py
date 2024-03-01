@@ -77,16 +77,28 @@ def Player_AC(DexModifer, ArmorType, ArmorAC, Shield):
 
 def Skills(StrSkills, DexSkills, ConSkills, IntSkills, WisSkills, ChrSkills, Expertise, Proficiencies, proficiency):
     Skills = (
-        ("StrSkills", {"Athletics": StrSkills}),
-        ("DexSkills", {"Acrobatics": DexSkills, "Sleight of Hand": DexSkills, "Stealth": DexSkills}),
-        ("ConSkills", {}),
-        ("IntSkills", {"Arcana": IntSkills, "History": IntSkills, "Investigation": IntSkills, "Nature": IntSkills, "Religion": IntSkills}),
-        ("WisSkills", {"Animal Handling": WisSkills, "Insight": WisSkills, "Medicine": WisSkills, "Perception": WisSkills, "Survival": WisSkills}),
-        ("ChrSkills", {"Deception": ChrSkills, "Intimidation": ChrSkills, "Performance": ChrSkills, "Persuasion": ChrSkills})
+        ("Str", {"Athletics": StrSkills}),
+        ("Dex", {"Acrobatics": DexSkills, "Sleight of Hand": DexSkills, "Stealth": DexSkills}),
+        ("Con", {}),
+        ("Int", {"Arcana": IntSkills, "History": IntSkills, "Investigation": IntSkills, "Nature": IntSkills, "Religion": IntSkills}),
+        ("Wis", {"Animal Handling": WisSkills, "Insight": WisSkills, "Medicine": WisSkills, "Perception": WisSkills, "Survival": WisSkills}),
+        ("Chr", {"Deception": ChrSkills, "Intimidation": ChrSkills, "Performance": ChrSkills, "Persuasion": ChrSkills})
     )
     for SkillCategory, SkillKey in Skills:
+        for ExpertSkill in Expertise:
+            if ExpertSkill in SkillKey:
+                SkillKey[ExpertSkill] *= proficiency
+
+    for SkillCategory, SkillKey in Skills:
+        for ProficienciesSkill in Proficiencies:
+            if ProficienciesSkill in SkillKey:
+                SkillKey[ProficienciesSkill] += 2
+
+
+
+    for SkillCategory, SkillKey in Skills:
         for skill, value in SkillKey.items():
-                print(f"{skill}: {value}")
+                print(f"{SkillCategory}:{skill}: {value}")
 
     
 def Character_Toml_Data(): 

@@ -20,7 +20,8 @@ Chr = 10
 Feats = []
 
 Expertise = [
-    "Insight"
+    "Insight",
+    "Athletics"
 ]
 
 Proficiencies = [

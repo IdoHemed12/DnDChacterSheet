@@ -3,7 +3,6 @@ import random
 with open("Attributes.toml", 'r') as file:
     ConfigData = toml.load(file)
 LevelOneHitDie = 10 #Fighter Deafult Needs a Feature to be deveoped
-Proficiency = 2 # Needs Development
 
 def proficiency_bonus(level):
     proficiency_bonus = 0
@@ -76,19 +75,18 @@ def Player_AC(DexModifer, ArmorType, ArmorAC, Shield):
         PlayerAC += 2
     return PlayerAC
 
-def Skills(StrSkills, DexSkills, ConSkills, IntSkills, WisSkills, ChrSkills, Expertise, Proficiencies ,Proficiency):
+def Skills(StrSkills, DexSkills, ConSkills, IntSkills, WisSkills, ChrSkills, Expertise, Proficiencies, proficiency):
     Skills = (
         ("StrSkills", {"Athletics": StrSkills}),
         ("DexSkills", {"Acrobatics": DexSkills, "Sleight of Hand": DexSkills, "Stealth": DexSkills}),
-        ("ConSkills", {"SomeSkill": ConSkills}),
+        ("ConSkills", {}),
         ("IntSkills", {"Arcana": IntSkills, "History": IntSkills, "Investigation": IntSkills, "Nature": IntSkills, "Religion": IntSkills}),
         ("WisSkills", {"Animal Handling": WisSkills, "Insight": WisSkills, "Medicine": WisSkills, "Perception": WisSkills, "Survival": WisSkills}),
         ("ChrSkills", {"Deception": ChrSkills, "Intimidation": ChrSkills, "Performance": ChrSkills, "Persuasion": ChrSkills})
     )
-
-    for skill_category, skills in Skills:
-        if Expertise in Skills:
-            pass
+    for SkillCategory, SkillKey in Skills:
+        for skill, value in SkillKey.items():
+                print(f"{skill}: {value}")
 
     
 def Character_Toml_Data(): 
@@ -137,9 +135,12 @@ def Character_Toml_Data():
     print("AC ", PlayerAC)
     print("Itiative ", Playeritiative)
 
+
     Expertise = ConfigData['Expertise']
     Proficiencies = ConfigData['Proficiencies']
-    Skills(StrMidfier, DexMidfier, ConMidfier, IntMidfier, WisMidfier, ChrMidfier, 0, 0, 0)
+    print("\n")
+    Skills(StrMidfier, DexMidfier, ConMidfier, IntMidfier, WisMidfier, ChrMidfier, Expertise, Proficiencies, proficiency)
+
 
 if __name__ == "__main__":
     Character_Toml_Data()

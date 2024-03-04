@@ -36,6 +36,8 @@ ArmorType = "Heavy"
 ArmorAC = 16
 Shield = true
 
+#The name of the armor that you are using 
+Armor = ["ChainMail", "Buckler"]
 
 [Weapons]
 LongSword = "1d8"
